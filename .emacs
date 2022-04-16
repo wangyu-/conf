@@ -5,6 +5,9 @@
 ;; M-x package-install ENTER evil
 ;; M-x package-install ENTER beacon
 
+;; add to bashrc or zshrc:
+;; alias ec='emacsclient -a "" -t'
+
 ;; if ssl is avaliable use this:
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
