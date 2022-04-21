@@ -4,6 +4,7 @@
 ;; M-x package-install ENTER spacemacs-theme
 ;; M-x package-install ENTER evil
 ;; M-x package-install ENTER beacon
+;; M-x package-install ENTER rainbow-delimiters
 
 ;; add to bashrc or zshrc:
 ;; alias ec='emacsclient -a "" -t'
@@ -122,7 +123,7 @@
 ;(setq evil-show-paren-range 100)
 ;(show-paren-mode)
 
-;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;(semantic-mode 1)
 ;(evil-ex-define-cmd "iml" 'imenu-list-smart-toggle)
