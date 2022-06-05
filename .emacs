@@ -76,6 +76,7 @@
           evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
 (require 'evil)
 (evil-mode 1)
+(setq evil-default-state 'emacs)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;(global-evil-tabs-mode t)
 
