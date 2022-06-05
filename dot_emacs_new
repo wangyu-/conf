@@ -1,0 +1,91 @@
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; list the packages you want
+(setq my-package-list '(spacemacs-theme evil beacon rainbow-delimiters lsp-mode lsp-ui treemacs lsp-treemacs which-key lsp-ivy company flycheck))
+
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; uncomment to force refresh
+;;(package-refresh-contents)
+
+; install the missing packages
+(dolist (package my-package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load-theme 'spacemacs-dark t)
+(global-hl-line-mode t)
+(save-place-mode 1)
+(beacon-mode 1)
+(global-so-long-mode 1)
+(which-key-mode)
+
+(setq scroll-conservatively 101)
+
+(setq c-default-style "linux" c-basic-offset 4)
+(c-set-offset 'inline-open '0)
+
+(global-tab-line-mode 1)
+(desktop-save-mode 1)
+(global-auto-revert-mode 1) 
+(treemacs-resize-icons 13)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "dark orange"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "deep pink"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
+
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;(setq evil-search-module 'evil-search)
+(setq evil-disable-insert-state-bindings t)
+(setq evil-want-C-u-scroll t)
+(setq evil-insert-state-cursor 'bar )
+;(setq evil-insert-state-cursor '(box "purple") )
+(setq evil-want-fine-undo t)
+(setq evil-normal-state-tag   (propertize " <N> " 'face '((:background "DarkGoldenrod2" :foreground "black")))
+          evil-emacs-state-tag    (propertize " <E> " 'face '((:background "SkyBlue2"       :foreground "black")))
+          evil-insert-state-tag   (propertize " <I> " 'face '((:background "chartreuse3"    :foreground "black")))
+          evil-replace-state-tag  (propertize " <R> " 'face '((:background "chocolate"      :foreground "black")))
+          evil-motion-state-tag   (propertize " <M> " 'face '((:background "plum3"          :foreground "black")))
+          evil-visual-state-tag   (propertize " <V> " 'face '((:background "gray"           :foreground "black")))
+          evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
+;(require 'evil)
+(evil-mode 1)
+(setq evil-default-state 'emacs)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq lsp-keymap-prefix "C-c l")
+
+;(require 'lsp-mode)
+(add-hook 'c-mode-hook #'lsp-deferred)
+(add-hook 'c++-mode-hook #'lsp-deferred)
+
+(lsp-treemacs-sync-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(rainbow-delimiters beacon spacemacs-theme evil)))
+
