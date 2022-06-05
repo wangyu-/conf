@@ -2,7 +2,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; list the packages you want
+; list the packages you want to install
 (setq my-package-list '(spacemacs-theme evil beacon rainbow-delimiters lsp-mode lsp-ui treemacs lsp-treemacs which-key lsp-ivy company flycheck))
 
 ; fetch the list of packages available 
@@ -19,21 +19,22 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load-theme 'spacemacs-dark t)
-(global-hl-line-mode t)
-(save-place-mode 1)
-(beacon-mode 1)
-(global-so-long-mode 1)
-(which-key-mode)
+(global-hl-line-mode t)  ;; highline the current line
+(save-place-mode 1)      ;; save/restore cursor position on close/open
+(beacon-mode 1)          ;; animate effect of cursor
+(global-so-long-mode 1)  ;; prevent long line from stall emacs, not sure if it's really useful
+(which-key-mode)         ;; give suggestion of the current typing command
 
-(setq scroll-conservatively 101)
+(setq scroll-conservatively 101)     ;; without this, the current line will always be at center, pretty annoying 
+
+
+(global-tab-line-mode 1)            ;; enabled the "tab bar" for buffers, which is actually called the tabline
+(desktop-save-mode 1)               ;; save/restore the layout of window on close/open
+(global-auto-revert-mode 1)         ;; auto update buffer, when the files is changed by monitering filesystem
+(treemacs-resize-icons 13)          ;; reduce the icon size of treemacs
 
 (setq c-default-style "linux" c-basic-offset 4)
 (c-set-offset 'inline-open '0)
-
-(global-tab-line-mode 1)
-(desktop-save-mode 1)
-(global-auto-revert-mode 1) 
-(treemacs-resize-icons 13)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -79,13 +80,16 @@
 (add-hook 'c-mode-hook #'lsp-deferred)
 (add-hook 'c++-mode-hook #'lsp-deferred)
 
+;; note: the lsp-mode automatically makes use of packages, such as company flycheck lsp-xxx, so there is no need to run them manually
+
 (lsp-treemacs-sync-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; the (custom-set-variables '(package-selected-packages  ...)) below is automatially generated, usually shouldn't be edited
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(rainbow-delimiters beacon spacemacs-theme evil)))
-
+ '(package-selected-packages
+   '(flycheck company lsp-ivy which-key lsp-treemacs treemacs lsp-ui lsp-mode rainbow-delimiters beacon evil spacemacs-theme)))
