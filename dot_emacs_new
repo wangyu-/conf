@@ -3,7 +3,21 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; list the packages you want to install
-(setq my-package-list '(spacemacs-theme evil beacon rainbow-delimiters lsp-mode lsp-ui treemacs lsp-treemacs which-key lsp-ivy company flycheck))
+(setq my-package-list '(spacemacs-theme
+			 evil
+			 beacon
+			 rainbow-delimiters
+			 lsp-mode
+			 lsp-ui
+			 treemacs
+			 lsp-treemacs
+			 which-key   ;;suggest key sequence, like C-c l
+			 lsp-ivy     ;;complete input of minibuffer, like treemacs- <TAB>
+			 company
+			 flycheck
+			 ;projectile
+			 treemacs-evil
+			 ))
 
 ; fetch the list of packages available 
 (unless package-archive-contents
@@ -84,8 +98,16 @@
 
 (lsp-treemacs-sync-mode 1)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;(projectile-mode +1)
+;(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;(setq projectile-use-git-grep t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; the (custom-set-variables '(package-selected-packages  ...)) below is automatially generated, usually shouldn't be edited
+;; note: below are automatially generated, usually shouldn't be edited
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -93,3 +115,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(flycheck company lsp-ivy which-key lsp-treemacs treemacs lsp-ui lsp-mode rainbow-delimiters beacon evil spacemacs-theme)))
+(put 'scroll-left 'disabled nil)
