@@ -15,7 +15,7 @@
 			 lsp-ivy     ;;complete input of minibuffer, like treemacs- <TAB>
 			 company
 			 flycheck
-			 ;projectile
+			 projectile
 			 treemacs-evil
 			 ))
 
@@ -101,9 +101,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;(projectile-mode +1)
-;(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-;(setq projectile-use-git-grep t)
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-use-git-grep t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; note: below are automatially generated, usually shouldn't be edited
@@ -114,5 +114,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(flycheck company lsp-ivy which-key lsp-treemacs treemacs lsp-ui lsp-mode rainbow-delimiters beacon evil spacemacs-theme)))
+   '(projectile flycheck company lsp-ivy which-key lsp-treemacs treemacs lsp-ui lsp-mode rainbow-delimiters beacon evil spacemacs-theme)))
 (put 'scroll-left 'disabled nil)
