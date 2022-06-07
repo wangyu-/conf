@@ -39,7 +39,7 @@
 (global-so-long-mode 1)  ;; prevent long line from stall emacs, not sure if it's really useful
 (which-key-mode)         ;; give suggestion of the current typing command
 
-(setq scroll-conservatively 101)     ;; without this, the current line will always be at center, pretty annoying 
+(setq scroll-conservatively 101)     ;; without this, there is a jump when the cursor moves into next page
 
 
 (global-tab-line-mode 1)            ;; enabled the "tab bar" for buffers, which is actually called the tabline
