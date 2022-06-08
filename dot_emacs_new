@@ -103,6 +103,9 @@
 
 (lsp-treemacs-sync-mode 1)
 
+(setq gc-cons-threshold 100000000) ;; as suggested by the lsp-mode doc
+(setq read-process-output-max (* 1024 1024)) ;; 1mb,  as suggested by the doc
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (projectile-mode +1)
