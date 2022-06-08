@@ -52,7 +52,6 @@
 (setq c-default-style "linux" c-basic-offset 4)
 (c-set-offset 'inline-open '0)
 
-(add-hook 'emacs-startup-hook 'treemacs)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
@@ -107,6 +106,12 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-use-git-grep t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(add-hook 'emacs-startup-hook 'treemacs)
+
+(require 'treemacs)
+(defun treemacs-dragleftclick-action () nil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; note: below are automatially generated, usually shouldn't be edited
 
