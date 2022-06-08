@@ -47,9 +47,12 @@
 (global-auto-revert-mode 1)         ;; auto update buffer, when the files is changed by monitering filesystem
 (treemacs-resize-icons 13)          ;; reduce the icon size of treemacs
 
+(tool-bar-mode -1)              ;; disable the toolbar which has very large icon, on gui mode
+
 (setq c-default-style "linux" c-basic-offset 4)
 (c-set-offset 'inline-open '0)
 
+(add-hook 'emacs-startup-hook 'treemacs)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
@@ -98,8 +101,6 @@
 
 (lsp-treemacs-sync-mode 1)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'emacs-startup-hook 'treemacs)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (projectile-mode +1)
