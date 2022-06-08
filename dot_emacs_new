@@ -17,6 +17,7 @@
 			 flycheck
 			 projectile
 			 treemacs-evil
+			 undo-tree
 			 ))
 
 ; fetch the list of packages available 
@@ -48,6 +49,8 @@
 (treemacs-resize-icons 13)          ;; reduce the icon size of treemacs
 
 (tool-bar-mode -1)              ;; disable the toolbar which has very large icon, on gui mode
+
+(global-undo-tree-mode)
 
 (setq c-default-style "linux" c-basic-offset 4)
 (c-set-offset 'inline-open '0)
@@ -121,5 +124,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(projectile flycheck company lsp-ivy which-key lsp-treemacs treemacs lsp-ui lsp-mode rainbow-delimiters beacon evil spacemacs-theme)))
+   '(undo-tree projectile flycheck company lsp-ivy which-key lsp-treemacs treemacs lsp-ui lsp-mode rainbow-delimiters beacon evil spacemacs-theme)))
 (put 'scroll-left 'disabled nil)
