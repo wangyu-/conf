@@ -44,7 +44,7 @@
 
 
 (global-tab-line-mode 1)            ;; enabled the "tab bar" for buffers, which is actually called the tabline
-(desktop-save-mode 1)               ;; save/restore the layout of window on close/open
+;;(desktop-save-mode 1)               ;; save/restore the layout of window on close/open
 (global-auto-revert-mode 1)         ;; auto update buffer, when the files is changed by monitering filesystem
 (treemacs-resize-icons 13)          ;; reduce the icon size of treemacs
 
@@ -55,6 +55,12 @@
 (setq c-default-style "linux" c-basic-offset 4)
 (c-set-offset 'inline-open '0)
 
+
+(setq default-frame-alist
+       '((height . 75)
+         (width . 260)
+         (left . 10)
+         (top . 30)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
