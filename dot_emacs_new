@@ -95,9 +95,9 @@
           evil-visual-state-tag   (propertize " <V> " 'face '((:background "gray"           :foreground "black")))
           evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
 ;(require 'evil)
-(evil-mode 0)   ;;disable
+(evil-mode 1)   ;;enable
 (setq evil-default-state 'emacs)
-
+(setq evil-default-cursor 'bar)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq lsp-keymap-prefix "C-c l")
