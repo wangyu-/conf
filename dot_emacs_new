@@ -55,12 +55,13 @@
 (setq c-default-style "linux" c-basic-offset 4)
 (c-set-offset 'inline-open '0)
 
-
 (setq default-frame-alist
        '((height . 75)
          (width . 260)
          (left . 10)
          (top . 30)))
+
+(setq-default cursor-type 'bar)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
@@ -94,7 +95,7 @@
           evil-visual-state-tag   (propertize " <V> " 'face '((:background "gray"           :foreground "black")))
           evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
 ;(require 'evil)
-(evil-mode 1)
+(evil-mode 0)   ;;disable
 (setq evil-default-state 'emacs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
