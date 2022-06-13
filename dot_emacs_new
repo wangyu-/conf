@@ -41,6 +41,10 @@
 ;;(load-theme 'spacemacs-dark t)
 (load-theme 'doom-one t)
 
+(setq backup-directory-alist `(("." . "~/.my_emacs_saves/backup")))
+(setq auto-save-file-name-transforms `((".*" "~/.my_emacs_saves/auto_save" t)))
+(setq lock-file-name-transforms `((".*" "~/.my_emacs_saves/lock" t)))
+
 (global-hl-line-mode t)  ;; highline the current line
 (save-place-mode 1)      ;; save/restore cursor position on close/open
 (beacon-mode 1)          ;; animate effect of cursor
@@ -58,6 +62,7 @@
 (tool-bar-mode -1)              ;; disable the toolbar which has very large icon, on gui mode
 
 (global-undo-tree-mode)
+(setq undo-tree-history-directory-alist '(("." . "~/.my_emacs_saves/undo")))
 
 (setq c-default-style "linux" c-basic-offset 4)
 (c-set-offset 'inline-open '0)
@@ -86,6 +91,7 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;(setq evil-search-module 'evil-search)
@@ -102,7 +108,7 @@
           evil-visual-state-tag   (propertize " <V> " 'face '((:background "gray"           :foreground "black")))
           evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
 ;(require 'evil)
-(evil-mode 1)   ;;enable
+;;;;(evil-mode 1)   ;;enable
 (setq evil-default-state 'emacs)
 (setq evil-default-cursor 'bar)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
