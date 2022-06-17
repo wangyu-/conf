@@ -115,10 +115,11 @@
 (setq evil-default-cursor 'bar)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-unset-key (kbd "s-l")) ;; if not unset, when evil is enabled, s-l could not re-bind to lsp correctly
-(setq lsp-keymap-prefix "s-l")
+;;(global-unset-key (kbd "s-l")) ;; if not unset, when evil is enabled, s-l could not re-bind to lsp correctly
+(setq lsp-keymap-prefix "C-c l")
 
-;(require 'lsp-mode)
+(require 'lsp-mode)
+(setq lsp-ui-doc-show-with-mouse nil)
 (add-hook 'c-mode-hook #'lsp-deferred)
 (add-hook 'c++-mode-hook #'lsp-deferred)
 
@@ -132,7 +133,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-use-git-grep t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
