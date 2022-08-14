@@ -62,3 +62,5 @@ set ttimeoutlen=3000
 
 au InsertLeave * call TurnOffCaps()
 set hlsearch
+
+set expandtab
