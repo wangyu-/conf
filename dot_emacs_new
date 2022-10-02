@@ -5,6 +5,8 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
+(setq use-as-ide nil)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; list the packages you want to install
 (setq my-package-list '(spacemacs-theme
@@ -126,8 +128,9 @@
 (setq lsp-signature-auto-activate nil)
 (setq lsp-signature-render-documentation nil)
 
-(add-hook 'c-mode-hook #'lsp-deferred)
-(add-hook 'c++-mode-hook #'lsp-deferred)
+(when use-as-ide
+	(add-hook 'c-mode-hook #'lsp-deferred)
+	(add-hook 'c++-mode-hook #'lsp-deferred))
 
 ;; note: the lsp-mode automatically makes use of packages, such as company flycheck lsp-xxx, so there is no need to run them manually
 
@@ -138,13 +141,15 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(projectile-mode +1)
+(when use-as-ide
+	(projectile-mode +1))
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-use-git-grep t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;(add-hook 'emacs-startup-hook 'treemacs)
+(when use-as-ide
+	(add-hook 'emacs-startup-hook 'treemacs))
 
 (require 'treemacs)
 (defun treemacs-dragleftclick-action () nil)
