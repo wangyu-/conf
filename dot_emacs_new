@@ -144,7 +144,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(add-hook 'emacs-startup-hook 'treemacs)
+;(add-hook 'emacs-startup-hook 'treemacs)
 
 (require 'treemacs)
 (defun treemacs-dragleftclick-action () nil)

@@ -57,10 +57,10 @@ function TurnOffCaps()
     endif
 endfunction
 
+"au InsertLeave * call TurnOffCaps()
+
 set ttimeout
 set ttimeoutlen=3000
 
-au InsertLeave * call TurnOffCaps()
 set hlsearch
-
 set expandtab
