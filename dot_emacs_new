@@ -130,11 +130,10 @@
 
 (when use-as-ide
 	(add-hook 'c-mode-hook #'lsp-deferred)
-	(add-hook 'c++-mode-hook #'lsp-deferred))
+	(add-hook 'c++-mode-hook #'lsp-deferred)
+	(lsp-treemacs-sync-mode 1))
 
 ;; note: the lsp-mode automatically makes use of packages, such as company flycheck lsp-xxx, so there is no need to run them manually
-
-(lsp-treemacs-sync-mode 1)
 
 (setq gc-cons-threshold 100000000) ;; as suggested by the lsp-mode doc
 (setq read-process-output-max (* 1024 1024)) ;; 1mb,  as suggested by the doc
