@@ -1,0 +1,122 @@
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; list the packages you want to install
+(setq my-package-list '(spacemacs-theme
+			 evil
+			 beacon
+			 rainbow-delimiters
+			 which-key   ;;suggest key sequence, like C-c l
+			 undo-tree
+			 doom-themes
+			 ))
+
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; uncomment to force refresh
+;;(package-refresh-contents)
+
+; install the missing packages
+(dolist (package my-package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;(load-theme 'spacemacs-dark t)
+(load-theme 'doom-one t)
+
+(setq backup-directory-alist `(("." . "~/.my_emacs_saves/backup")))
+(setq auto-save-file-name-transforms `((".*" "~/.my_emacs_saves/auto_save" t)))
+(setq lock-file-name-transforms `((".*" "~/.my_emacs_saves/lock" t)))
+
+(global-hl-line-mode t)  ;; highline the current line
+(save-place-mode 1)      ;; save/restore cursor position on close/open
+(beacon-mode 1)          ;; animate effect of cursor
+(global-so-long-mode 1)  ;; prevent long line from stall emacs, not sure if it's really useful
+(which-key-mode)         ;; give suggestion of the current typing command
+
+(setq scroll-conservatively 101)     ;; without this, there is a jump when the cursor moves into next page
+
+
+(global-tab-line-mode 1)            ;; enabled the "tab bar" for buffers, which is actually called the tabline
+;;(desktop-save-mode 1)               ;; save/restore the layout of window on close/open
+(global-auto-revert-mode 1)         ;; auto update buffer, when the files is changed by monitering filesystem
+
+(tool-bar-mode -1)              ;; disable the toolbar which has very large icon, on gui mode
+
+(require 'undo-tree)
+(global-undo-tree-mode)
+(setq undo-tree-history-directory-alist '(("." . "~/.my_emacs_saves/undo")))
+(setq undo-tree-auto-save-history nil)
+
+(setq c-default-style "linux" c-basic-offset 4)
+(c-set-offset 'inline-open '0)
+
+(setq default-frame-alist
+       '((height . 75)
+         (width . 260)
+         (left . 10)
+         (top . 30)))
+
+(setq-default cursor-type 'bar)
+
+(setq inhibit-startup-screen t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "dark orange"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "deep pink"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
+
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;(setq evil-search-module 'evil-search)
+(setq evil-disable-insert-state-bindings t)
+(setq evil-want-C-u-scroll t)
+(setq evil-insert-state-cursor 'bar )
+;(setq evil-insert-state-cursor '(box "purple") )
+(setq evil-want-fine-undo t)
+(setq evil-normal-state-tag   (propertize " <N> " 'face '((:background "DarkGoldenrod2" :foreground "black")))
+          evil-emacs-state-tag    (propertize " <E> " 'face '((:background "SkyBlue2"       :foreground "black")))
+          evil-insert-state-tag   (propertize " <I> " 'face '((:background "chartreuse3"    :foreground "black")))
+          evil-replace-state-tag  (propertize " <R> " 'face '((:background "chocolate"      :foreground "black")))
+          evil-motion-state-tag   (propertize " <M> " 'face '((:background "plum3"          :foreground "black")))
+          evil-visual-state-tag   (propertize " <V> " 'face '((:background "gray"           :foreground "black")))
+          evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
+;(require 'evil)
+;;;;(evil-mode 1)   ;;enable
+(setq evil-default-state 'emacs)
+(setq evil-default-cursor 'bar)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq gc-cons-threshold 100000000) ;; as suggested by the lsp-mode doc
+(setq read-process-output-max (* 1024 1024)) ;; 1mb,  as suggested by the doc
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(doom-themes undo-tree projectile flycheck company lsp-ivy which-key lsp-treemacs treemacs lsp-ui lsp-mode rainbow-delimiters beacon evil spacemacs-theme)))
+(put 'scroll-left 'disabled nil)
