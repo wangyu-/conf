@@ -50,12 +50,12 @@ set bs=indent,eol,start   "allow backspacing over everything in insert mode
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
-function TurnOffCaps()
-    let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
-    if capsState == 'on'
-        silent! execute ':!xdotool key Caps_Lock'
-    endif
-endfunction
+"function TurnOffCaps()
+"    let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
+"    if capsState == 'on'
+"        silent! execute ':!xdotool key Caps_Lock'
+"    endif
+"endfunction
 
 "au InsertLeave * call TurnOffCaps()
 
