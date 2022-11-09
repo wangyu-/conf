@@ -17,8 +17,9 @@ endif
 "t_8f t_8b的含义可以查看  :h xterm-true-color
 
 color space-vim-dark
-hi LineNr ctermbg=NONE guibg=NONE
-"背景透明相关
+
+"//背景透明相关
+"hi LineNr ctermbg=NONE guibg=NONE
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -47,8 +48,25 @@ au Syntax * RainbowParenthesesLoadBraces
 set viminfo='20,<2000,s10,h  "这个1000设小了，跨文件复制会复制不全
 set bs=indent,eol,start   "allow backspacing over everything in insert mode
 
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"//save cursor location, new
+" Put these in an autocmd group, so that you can revert them with:
+" ":augroup vimStartup | au! | augroup END"
+augroup vimStartup
+  au!
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid, when inside an event handler
+  " (happens when dropping a file on gvim) and for a commit message (it's
+  " likely a different one than last time).
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+
+augroup END
+
+"//save cursor position, disabled since they are causing other problems
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview
 
 "function TurnOffCaps()
 "    let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
@@ -64,3 +82,5 @@ set ttimeoutlen=3000
 
 set hlsearch
 set expandtab
+
+autocmd Filetype c setlocal sw=4 ts=4 expandtab
