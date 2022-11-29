@@ -36,6 +36,8 @@
 (setq auto-save-file-name-transforms `((".*" "~/.my_emacs_saves/auto_save" t)))
 (setq lock-file-name-transforms `((".*" "~/.my_emacs_saves/lock" t)))
 
+(delete-selection-mode 1)  ;; anything typed or pasted will replace the marked region
+
 (global-hl-line-mode t)  ;; highline the current line
 (save-place-mode 1)      ;; save/restore cursor position on close/open
 (beacon-mode 1)          ;; animate effect of cursor
@@ -102,7 +104,7 @@
           evil-visual-state-tag   (propertize " <V> " 'face '((:background "gray"           :foreground "black")))
           evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
 ;(require 'evil)
-;;;;(evil-mode 1)   ;;enable
+(evil-mode 1)   ;;enable
 (setq evil-default-state 'emacs)
 (setq evil-default-cursor 'bar)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
