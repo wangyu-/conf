@@ -11,7 +11,7 @@
 			 evil
 			 beacon
 			 rainbow-delimiters
-			 which-key   ;;suggest key sequence, like C-c l
+			 which-key   ;;pop up a help window while typing commands, like c-x s
 			 undo-tree
 			 doom-themes
 			 ))
@@ -42,7 +42,7 @@
 (save-place-mode 1)      ;; save/restore cursor position on close/open
 (beacon-mode 1)          ;; animate effect of cursor
 (global-so-long-mode 1)  ;; prevent long line from stall emacs, not sure if it's really useful
-(which-key-mode)         ;; give suggestion of the current typing command
+;;(which-key-mode)         ;; give suggestion of the current typing command
 
 (setq scroll-conservatively 10000)     ;; without this, emacs will try to center the cursor after scroll
 
