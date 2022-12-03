@@ -29,8 +29,8 @@
     (package-install package)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;(load-theme 'spacemacs-dark t)
-(load-theme 'doom-one t)
+(load-theme 'spacemacs-dark t)
+;;(load-theme 'doom-one t)
 
 (setq backup-directory-alist `(("." . "~/.my_emacs_saves/backup")))
 (setq auto-save-file-name-transforms `((".*" "~/.my_emacs_saves/auto_save" t)))
@@ -44,14 +44,16 @@
 (global-so-long-mode 1)  ;; prevent long line from stall emacs, not sure if it's really useful
 (which-key-mode)         ;; give suggestion of the current typing command
 
-(setq scroll-conservatively 101)     ;; without this, there is a jump when the cursor moves into next page
+(setq scroll-conservatively 10000)     ;; without this, emacs will try to center the cursor after scroll
 
 
-(global-tab-line-mode 1)            ;; enabled the "tab bar" for buffers, which is actually called the tabline
+;;(global-tab-line-mode 1)            ;; enabled the "tab bar" for buffers, which is actually called the tabline
 ;;(desktop-save-mode 1)               ;; save/restore the layout of window on close/open
-(global-auto-revert-mode 1)         ;; auto update buffer, when the files is changed by monitering filesystem
+;;(global-auto-revert-mode 1)         ;; auto update buffer, when the files is changed by monitering filesystem
 
 (tool-bar-mode -1)              ;; disable the toolbar which has very large icon, on gui mode
+(menu-bar-mode -1)              ;; disable the memu bar right above the editing buffer
+;;(scroll-bar-mode -1)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
@@ -59,7 +61,6 @@
 (setq undo-tree-auto-save-history nil)
 
 (setq c-default-style "linux" c-basic-offset 4)
-(c-set-offset 'inline-open '0)
 
 (setq default-frame-alist
        '((height . 75)
@@ -70,6 +71,11 @@
 (setq-default cursor-type 'bar)
 
 (setq inhibit-startup-screen t)
+
+(global-set-key (kbd "C-c c") 'compile)
+
+(setq linum-format "%4d \u2502")
+(global-linum-mode t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
