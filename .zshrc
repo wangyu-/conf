@@ -1,5 +1,12 @@
 alias ls='ls -G'
+alias e='emacs -nw'
 alias ec='emacsclient -a "" -t'
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
+
+setopt noautomenu
+setopt nomenucomplete
 
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
