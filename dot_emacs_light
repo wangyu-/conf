@@ -35,8 +35,8 @@
 ;;(load-theme 'doom-one t)
 
 (setq backup-directory-alist `(("." . "~/.my_emacs_saves/backup/")))
-(setq auto-save-file-name-transforms `((".*" "~/.my_emacs_saves/auto_save/" t)))   ;;the "/" seems necessary
-(setq lock-file-name-transforms `((".*" "~/.my_emacs_saves/lock/" t)))       ;;the "/" seems necessary
+(setq auto-save-file-name-transforms `((".*" "~/.my_emacs_saves/auto_save/" t)))   ;; the "/" seems necessary, the dir need to be created manually
+(setq lock-file-name-transforms `((".*" "~/.my_emacs_saves/lock/" t)))             ;; same as above
 
 (delete-selection-mode 1)  ;; anything typed or pasted will replace the marked region
 
@@ -103,8 +103,8 @@
 ;; see more at https://evil.readthedocs.io/en/latest/settings.html
 
 ;(setq evil-search-module 'evil-search)
-(setq evil-disable-insert-state-bindings t)  ;; t to use emacs key-bindings in insert mode
-                                             ;; nil to use vim bings in insert mode
+(setq evil-disable-insert-state-bindings nil)  ;; t to use emacs key-bindings in insert mode
+                                             ;; nil to use vim bindinggs in insert mode
 
 (setq evil-want-C-u-scroll t)
 (setq evil-insert-state-cursor 'bar )
