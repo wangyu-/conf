@@ -80,6 +80,9 @@
 (global-linum-mode t)
 
 (add-to-list 'auto-mode-alist '("\\.gn\\'" . gn-mode))
+
+(setq auto-save-default nil) ;; disable auto-save, since the auto-save file is casuing a 1s delay
+                             ;; when next time the file is opened. disable auto save until find a better solution
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
